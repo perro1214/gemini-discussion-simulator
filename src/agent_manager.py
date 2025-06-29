@@ -8,7 +8,7 @@ import json
 import os
 import random
 from typing import List, Dict, Any, Optional
-from agent_classes import Agent
+from src.agent_classes import Agent
 
 
 class AgentManager:

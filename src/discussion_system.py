@@ -13,13 +13,13 @@ import time
 from typing import List, Dict, Any
 from dataclasses import dataclass
 import google.generativeai as genai
-from agent_classes import Agent, Message
+from src.agent_classes import Agent, Message
 
 
 @dataclass
 class DiscussionAgent(Agent):
     """Discussion agent with model configuration"""
-    model_name: str = "gemini-2.0-flash-lite"
+    model_name: str = "models/gemini-2.5-flash-lite-preview-06-17"
 
 
 class DiscussionSystem:
@@ -134,7 +134,7 @@ class DiscussionSystem:
     
     async def summarize_discussion(self) -> str:
         """Summarize the discussion using Gemini 2.5 Flash"""
-        model = genai.GenerativeModel("gemini-2.5-flash")
+        model = genai.GenerativeModel("models/gemini-2.5-flash")
         
         # Format all messages for summarization
         discussion_text = []

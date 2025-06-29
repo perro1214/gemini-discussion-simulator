@@ -4,7 +4,7 @@ Agent presets for different discussion perspectives
 """
 
 from typing import List, Dict, Any
-from discussion_system import Agent
+from src.agent_classes import Agent
 
 # 教育関連のプリセット
 EDUCATION_AGENTS = [
