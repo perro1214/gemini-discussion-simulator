@@ -12,7 +12,7 @@ from src.agent_classes import Agent
 
 
 class AgentManager:
-    def __init__(self, config_file: str = "agents_config.json"):
+    def __init__(self, config_file: str = os.path.join(os.path.dirname(__file__), "agents_config.json")):
         self.config_file = config_file
         self.agents_data = self._load_agents()
     
