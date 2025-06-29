@@ -18,25 +18,25 @@ export GEMINI_API_KEY="your_api_key_here"
 
 ### インタラクティブ版（推奨）
 ```bash
-python interactive_discussion.py
+python scripts/interactive_discussion.py
 ```
 設定を対話的に選択して議論を実行
 
 ### シンプル版
 ```bash
-python run_discussion.py
+python scripts/run_discussion.py
 ```
 プリセットされた設定で即座に実行
 
 ### デモ版
 ```bash
-python demo_discussion.py
+python scripts/demo_discussion.py
 ```
 3つのカテゴリーで連続デモを実行
 
 ### ジャンル混合デモ
 ```bash
-python mixed_mode_demo.py
+python scripts/mixed_mode_demo.py
 ```
 全カテゴリーからランダム選択したエージェントでの議論
 
@@ -47,7 +47,7 @@ python mixed_mode_demo.py
 - **ジャンル混合モード**: 全42種類からランダム選択で異分野コラボレーション
 - **文字数制限**: エージェント発言（50-500文字）と要約（500-3000文字）の制限設定
 - **ランダム選択**: 空欄入力で自動選択機能
-- **高品質な議論**: Gemini 2.5 Flash Liteで効率的な議論、Gemini 2.5 Flashで高品質な要約
+- **高品質な議論**: `models/gemini-2.5-flash-lite-preview-06-17`で効率的な議論、`models/gemini-2.5-flash`で高品質な要約
 - **完全日本語対応**: エージェントの発言も要約も日本語
 - **結果保存**: 議論の内容をJSONファイルでresultsディレクトリに保存
 
@@ -75,20 +75,26 @@ CEO、部長、CFO、PM、アナリスト、CTO、営業
 
 ```
 discussion/
-├── agent_presets.py           # 42種類のエージェントプリセット
-├── discussion_system.py       # メインシステム
-├── interactive_discussion.py  # インタラクティブ版
-├── run_discussion.py          # シンプル実行版
-├── demo_discussion.py         # カテゴリー別デモ
-├── mixed_mode_demo.py         # ジャンル混合デモ
-├── test_discussion.py         # 基本テスト
-├── test_enhanced_discussion.py # 拡張機能テスト
-├── requirements.txt           # 依存パッケージ
-├── README.md                  # このファイル
-└── results/                   # 議論結果保存ディレクトリ
-    ├── discussion_*.json      # 議論ログ
-    ├── demo_*.json            # デモ結果
-    └── test_*.json            # テスト結果
+├── scripts/
+│   ├── demo_discussion.py           # カテゴリー別デモ
+│   ├── interactive_discussion.py    # インタラクティブ版
+│   ├── mixed_mode_demo.py           # ジャンル混合デモ
+│   └── run_discussion.py            # シンプル実行版
+├── src/
+│   ├── agent_classes.py             # エージェントクラス定義
+│   ├── agent_manager.py             # エージェント管理システム
+│   ├── agent_presets.py             # 42種類のエージェントプリセット
+│   ├── discussion_system.py         # メインシステム
+│   └── ... (その他のsrcファイル)
+├── tests/
+│   ├── test_discussion.py           # 基本テスト
+│   └── test_enhanced_discussion.py  # 拡張機能テスト
+├── requirements.txt                 # 依存パッケージ
+├── README.md                        # このファイル
+└── results/                         # 議論結果保存ディレクトリ
+    ├── discussion_*.json            # 議論ログ
+    ├── demo_*.json                  # デモ結果
+    └── test_*.json                  # テスト結果
 ```
 
 ## 出力
